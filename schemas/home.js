@@ -13,16 +13,27 @@ export default {
       title: '썸네일 제목',
       type: 'string',
       description: '썸네일에 표시할 제목.',
+      validation: Rule => [Rule.required(),
+        Rule.max(40).error(`제한 글자 수 초과`)]
     },
     {
       name: 'slug',
-      title: 'slug',
+      title: 'Slug',
       type: 'slug',
+      description: '오른편에 "Generate" 버튼 클릭!',
       options: {
         source: '_id',
         maxLength: '100',
+        slugify: input => {
+          if(input.includes('drafts.') || input.includes('drafts-')) {
+            return input.substring(7)
+          }
+          else {
+            return input
+          }
+        }
       },
-      description: '"Generate" 버튼 클릭!'
+      validation: Rule => Rule.required()
     },
     {
       name: 'image',
@@ -31,12 +42,15 @@ export default {
       options: {
         hotspot: true,
       },
+      validation: Rule => Rule.required()
     },
     {
       name: 'description',
       title: 'Caption',
-      type: 'string',
+      type: 'text',
+      rows: 3,
       description: '게시글 내부에 표시할 제목.',
+      validation: Rule => Rule.max(280).error(`제한 글자 수 초과`)
     },
     {
       name: 'images',
@@ -44,6 +58,9 @@ export default {
       type: 'array',
       description: '추가 이미지',
       of: [{ type: 'image' }],
+      options: {
+        hotspot: true,
+      },
     },
   ]
 };
