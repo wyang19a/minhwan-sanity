@@ -6,16 +6,9 @@ export default {
         title: 'My Netlify deploys',
         sites: [
           {
-            title: 'Sanity Studio',
-            apiId: 'xxxxx-yyyy-zzzz-xxxx-yyyyyyyy',
-            buildHookId: 'xxxyyyxxxyyyyxxxyyy',
-            name: 'sanity-gatsby-blog-20-studio',
-          },
-          {
-            title: 'Website',
-            apiId: 'yyyyy-xxxxx-zzzz-xxxx-yyyyyyyy',
-            buildHookId: 'yyyyxxxxxyyyxxdxxx',
-            name: 'sanity-gatsby-blog-20-web'
+            apiId: '2e4c47cf-16f2-4fe5-ad6f-067ab935cd73',
+            buildHookId: '5fd81c732c027f13e751e236',
+            name: 'minhwan',
           }
         ]
       }
